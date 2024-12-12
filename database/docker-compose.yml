@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  ml-ops-data-lake:
+    image: postgres:latest
+    container_name: ml-ops-data-lake
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: datalake
+    ports:
+      - "5432:5432"
+    networks:
+      - default
+
+networks:
+  default:
+    name: ml-ops

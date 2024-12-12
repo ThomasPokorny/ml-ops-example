@@ -3,6 +3,7 @@ version: '3.8'
 services:
   ml-ops-redpanda:
     image: redpandadata/redpanda:v24.2.13
+    container_name: ml-ops-redpanda
     command: >
       redpanda start
       --smp 1
