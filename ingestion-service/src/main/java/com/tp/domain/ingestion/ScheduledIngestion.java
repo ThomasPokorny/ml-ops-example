@@ -16,7 +16,7 @@ public class ScheduledIngestion {
     private final KafkaProducerService kafkaProducerService;
     private final ObjectMapper objectMapper;
 
-    @Scheduled(fixedRate = 5000)
+    @Scheduled(fixedRate = 2000)
     public void reportCurrentTime() {
         final var consumptions = this.dataGeneratorService.generateConsumption();
         if (!consumptions.isEmpty()) {
