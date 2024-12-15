@@ -51,9 +51,9 @@ public class DataGeneratorService {
                 // Iterate over device columns and aggregate data
                 for (int i = 2; i < headers.length; i++) { // Start from index 2 to skip Date and Time
                     Map<String, String> deviceData = new HashMap<>();
-                    deviceData.put("DateTime", formattedDateTime);
-                    deviceData.put("Device", headers[i]);
-                    deviceData.put("Value", values[i]);
+                    deviceData.put("dateTime", formattedDateTime);
+                    deviceData.put("device", headers[i]);
+                    deviceData.put("value", values[i]);
                     deviceDataList.add(deviceData);
                 }
             } else {
