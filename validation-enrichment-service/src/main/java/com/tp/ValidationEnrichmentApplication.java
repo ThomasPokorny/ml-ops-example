@@ -6,7 +6,7 @@ import org.springframework.kafka.annotation.EnableKafka;
 
 @SpringBootApplication
 @EnableKafka
-public class ValidationEnrichmentService {
+public class ValidationEnrichmentApplication {
     private static final String INGESTION_LABEL = """
              _    __      ___     __      __  _          \s
             | |  / /___ _/ (_)___/ /___ _/ /_(_)___  ____\s
@@ -20,7 +20,7 @@ public class ValidationEnrichmentService {
                                                          \s                                                                                  \s
             """;
     public static void main(String[] args) {
-        SpringApplication.run(ValidationEnrichmentService.class, args);
+        SpringApplication.run(ValidationEnrichmentApplication.class, args);
         System.out.println(INGESTION_LABEL);
     }
 }

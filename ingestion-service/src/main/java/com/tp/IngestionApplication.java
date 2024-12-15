@@ -6,7 +6,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
 @EnableScheduling
-public class IngestionService {
+public class IngestionApplication {
     private static final String INGESTION_LABEL = """
              __     __   __     ______     ______     ______     ______   __     ______     __   __   \s
             /\\ \\   /\\ "-.\\ \\   /\\  ___\\   /\\  ___\\   /\\  ___\\   /\\__  _\\ /\\ \\   /\\  __ \\   /\\ "-.\\ \\  \s
@@ -22,7 +22,7 @@ public class IngestionService {
                                                                                                       \s
             """;
     public static void main(String[] args) {
-        SpringApplication.run(IngestionService.class, args);
+        SpringApplication.run(IngestionApplication.class, args);
         System.out.println(INGESTION_LABEL);
     }
 }
