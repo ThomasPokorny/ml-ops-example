@@ -1,4 +1,4 @@
-package com.tp.domain.ingestion.consumption.raw;
+package com.tp.domain.consumption.raw;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

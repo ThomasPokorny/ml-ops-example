@@ -1,4 +1,4 @@
-package com.tp.domain.ingestion;
+package com.tp.domain.consumption;
 
 import java.util.Map;
 

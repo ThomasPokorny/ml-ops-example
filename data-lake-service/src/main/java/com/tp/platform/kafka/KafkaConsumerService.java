@@ -1,7 +1,7 @@
 package com.tp.platform.kafka;
 
-import com.tp.domain.ingestion.ConsumptionDataMapper;
-import com.tp.domain.ingestion.consumption.raw.RawConsumptionDataService;
+import com.tp.domain.consumption.ConsumptionDataMapper;
+import com.tp.domain.consumption.raw.RawConsumptionDataService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;

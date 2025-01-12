@@ -1,4 +1,4 @@
-package com.tp.domain.ingestion;
+package com.tp.domain.consumption;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;

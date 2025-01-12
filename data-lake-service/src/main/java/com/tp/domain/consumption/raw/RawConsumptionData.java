@@ -1,4 +1,4 @@
-package com.tp.domain.ingestion.consumption.raw;
+package com.tp.domain.consumption.raw;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
