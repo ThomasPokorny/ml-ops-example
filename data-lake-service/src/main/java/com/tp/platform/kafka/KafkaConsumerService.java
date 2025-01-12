@@ -1,6 +1,7 @@
 package com.tp.platform.kafka;
 
 import com.tp.domain.ingestion.ConsumptionDataMapper;
+import com.tp.domain.ingestion.consumption.raw.RawConsumptionDataService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 public class KafkaConsumerService {
 
     private final ConsumptionDataMapper mapper;
+    private final RawConsumptionDataService rawConsumptionDataService;
 
     @KafkaListener(topics = "consumption_data", groupId = "data-lake-service")
     public void consumeMessage(String message) {
@@ -23,6 +25,6 @@ public class KafkaConsumerService {
 
     @KafkaListener(topics = "raw_data", groupId = "data-lake-service")
     public void consumeRawMessage(String message) {
-        System.out.println("Parsed Raw Data: " + message);
+        rawConsumptionDataService.save(message);
     }
 }
