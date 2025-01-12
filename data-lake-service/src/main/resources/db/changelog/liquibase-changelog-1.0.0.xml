@@ -1,0 +1,19 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.17.xsd">
+
+    <changeSet author="Thomas Pokorny" id="1.0.0-consumption-entry_create_table.sql">
+        <sqlFile
+                endDelimiter="$$"
+                relativeToChangelogFile="true"
+                path="1.0.0/1.0.0-consumption-data_create_table.sql"/>
+    </changeSet>
+
+    <changeSet author="Thomas Pokorny" id="1.0.1-raw-consumption-entry_create_table.sql">
+        <sqlFile
+                endDelimiter="$$"
+                relativeToChangelogFile="true"
+                path="1.0.0/1.0.1-raw-consumption-data_create_table.sql"/>
+    </changeSet>
+</databaseChangeLog>

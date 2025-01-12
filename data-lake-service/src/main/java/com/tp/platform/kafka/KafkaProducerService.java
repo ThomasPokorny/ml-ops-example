@@ -1,7 +1,6 @@
 package com.tp.platform.kafka;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.tp.domain.validation.model.ConsumptionData;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
@@ -17,11 +16,11 @@ public class KafkaProducerService {
         this.kafkaTemplate = kafkaTemplate;
     }
 
-    public void sendMessage(ConsumptionData consumptionData) {
+    public void sendMessage() {
         try {
-            final var message =  objectMapper.writeValueAsString(consumptionData);
-            kafkaTemplate.send(TOPIC,message);
-            System.out.println("Message sent to Kafka: " + message);
+            //final var message =  objectMapper.writeValueAsString(consumptionData);
+            kafkaTemplate.send(TOPIC, "");
+            System.out.println("Message sent to Kafka: " + "");
         } catch (Exception e) {
             e.printStackTrace();
         }
