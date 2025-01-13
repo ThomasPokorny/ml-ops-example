@@ -24,4 +24,11 @@
                 path="1.0.0/1.0.2-raw-consumption-data_rename-table.sql"/>
     </changeSet>
 
+    <changeSet author="Thomas Pokorny" id="1.0.3-consumption-aggregates_create_tables.sql">
+        <sqlFile
+                endDelimiter="$$"
+                relativeToChangelogFile="true"
+                path="1.0.0/1.0.3-consumption-aggregates_create_tables.sql"/>
+    </changeSet>
+
 </databaseChangeLog>
