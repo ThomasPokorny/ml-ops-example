@@ -1,9 +1,9 @@
-package com.tp.domain.consumption.aggregates.weekly;
+package com.tp.domain.consumption.aggregates.monthly;
 
 import com.tp.domain.consumption.ConsumptionDataDto;
 import com.tp.domain.consumption.aggregates.DataAggregateService;
-import com.tp.domain.consumption.aggregates.daily.DailyConsumptionData;
-import com.tp.domain.consumption.aggregates.daily.DailyConsumptionDataRepository;
+import com.tp.domain.consumption.aggregates.weekly.WeeklyConsumptionData;
+import com.tp.domain.consumption.aggregates.weekly.WeeklyConsumptionDataRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,18 +14,18 @@ import java.util.Date;
 
 @Service
 @RequiredArgsConstructor
-public class WeeklyConsumptionDataService implements DataAggregateService {
-    private final WeeklyConsumptionDataRepository repository;
+public class MonthlyConsumptionDataService implements DataAggregateService {
+    private final MonthlyConsumptionDataRepository repository;
 
     public void addToAggregate(ConsumptionDataDto dto) {
         final var date = Date.from(LocalDateTime.parse(dto.dateTime()).toInstant(ZoneOffset.ofHours(0)));
-        final var endOfWeek = getEndOfWeek(date);
+        final var endOfMonth = getEndOfMonth(date);
 
-        final var aggregate = repository.findByDate(endOfWeek).orElseGet(() -> {
-            final var createAggregate =  new WeeklyConsumptionData();
+        final var aggregate = repository.findByDateAndDevice(endOfMonth, dto.device()).orElseGet(() -> {
+            final var createAggregate =  new MonthlyConsumptionData();
             createAggregate.setDevice(dto.device());
             createAggregate.setValue(0.0);
-            createAggregate.setDate(endOfWeek);
+            createAggregate.setDate(endOfMonth);
             return createAggregate;
         });
 
@@ -35,10 +35,10 @@ public class WeeklyConsumptionDataService implements DataAggregateService {
         this.repository.save(aggregate);
     }
 
-    private Date getEndOfWeek(Date date) {
+    private Date getEndOfMonth(Date date) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
-        calendar.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
+        calendar.set(Calendar.DAY_OF_MONTH, calendar.getActualMaximum(Calendar.DAY_OF_MONTH));
         calendar.set(Calendar.HOUR_OF_DAY, 23);
         calendar.set(Calendar.MINUTE, 59);
         calendar.set(Calendar.SECOND, 59);

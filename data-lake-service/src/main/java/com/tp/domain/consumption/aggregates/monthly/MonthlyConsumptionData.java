@@ -1,4 +1,4 @@
-package com.tp.domain.consumption.aggregates.weekly;
+package com.tp.domain.consumption.aggregates.monthly;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -7,10 +7,10 @@ import lombok.Setter;
 import java.util.Date;
 
 @Entity
-@Table(name = "weekly_consumption_data")
+@Table(name = "monthly_consumption_data")
 @Getter
 @Setter
-public class WeeklyConsumptionData {
+public class MonthlyConsumptionData {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

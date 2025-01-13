@@ -17,7 +17,7 @@ public class DailyConsumptionDataService implements DataAggregateService {
     public void addToAggregate(ConsumptionDataDto dto) {
         final var date = Date.from(LocalDateTime.parse(dto.dateTime()).toInstant(ZoneOffset.ofHours(0)));
 
-        final var aggregate = repository.findByDate(date).orElseGet(() -> {
+        final var aggregate = repository.findByDateAndDevice(date, dto.device()).orElseGet(() -> {
             final var createAggregate =  new DailyConsumptionData();
             createAggregate.setDevice(dto.device());
             createAggregate.setValue(0.0);

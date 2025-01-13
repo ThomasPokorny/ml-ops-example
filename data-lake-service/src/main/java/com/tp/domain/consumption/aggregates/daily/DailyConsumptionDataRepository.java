@@ -6,5 +6,5 @@ import java.util.Date;
 import java.util.Optional;
 
 public interface DailyConsumptionDataRepository extends JpaRepository<DailyConsumptionData, Long> {
-    Optional<DailyConsumptionData> findByDate(Date date);
+    Optional<DailyConsumptionData> findByDateAndDevice(Date date, String device);
 }
