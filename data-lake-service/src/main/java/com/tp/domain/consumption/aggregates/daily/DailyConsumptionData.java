@@ -1,14 +1,10 @@
 package com.tp.domain.consumption.aggregates.daily;
 
-import com.tp.domain.consumption.MetadataConverter;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.ColumnTransformer;
 
-import java.time.LocalDateTime;
 import java.util.Date;
-import java.util.Map;
 
 @Entity
 @Table(name = "daily_consumption_data")
